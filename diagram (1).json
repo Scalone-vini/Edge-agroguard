@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "author": "Vinicius Scalone RM573783 | Rafael de Souza RM568777",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 150,
+      "left": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 10,
+      "left": 10,
+      "attrs": { "temperature": "36", "humidity": "25" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 300,
+      "left": 10,
+      "attrs": { "label": "Umidade Solo" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 10,
+      "left": 370,
+      "attrs": { "pins": "full", "background": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rLCD",
+      "top": 90,
+      "left": 370,
+      "attrs": { "value": "1000", "label": "Contraste LCD" },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 340,
+      "left": 420,
+      "attrs": { "value": "220", "label": "LED Verde" },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 400,
+      "left": 420,
+      "attrs": { "value": "220", "label": "LED Vermelho" },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVerde",
+      "top": 310,
+      "left": 470,
+      "attrs": { "color": "green", "label": "SEGURO" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVerm",
+      "top": 370,
+      "left": 470,
+      "attrs": { "color": "red", "label": "RISCO" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 440,
+      "left": 420,
+      "attrs": { "volume": "0.5" }
+    }
+  ],
+  "connections": [
+    ["dht1:VCC", "uno:5V",  "red",    ["h10", "v160"]],
+    ["dht1:GND", "uno:GND.2", "black", ["h20", "v170"]],
+    ["dht1:SDA", "uno:2",  "green",  ["h30", "v180"]],
+
+    ["pot1:VCC", "uno:5V",  "red",    ["h10", "v-50"]],
+    ["pot1:GND", "uno:GND.2", "black", ["h20", "v-40"]],
+    ["pot1:SIG", "uno:A0", "yellow", ["h30", "v-30"]],
+
+    ["lcd1:VSS", "uno:GND.2", "black",  []],
+    ["lcd1:VDD", "uno:5V",    "red",    []],
+    ["lcd1:V0",  "rLCD:1",   "black",  []],
+    ["rLCD:2",   "uno:GND.2","black",  []],
+    ["lcd1:RW",  "uno:GND.2","black",  []],
+    ["lcd1:RS",  "uno:12",   "purple", []],
+    ["lcd1:E",   "uno:11",   "purple", []],
+    ["lcd1:D4",  "uno:5",    "blue",   []],
+    ["lcd1:D5",  "uno:4",    "blue",   []],
+    ["lcd1:D6",  "uno:3",    "blue",   []],
+    ["lcd1:D7",  "uno:6",    "blue",   []],
+    ["lcd1:A",   "uno:5V",   "red",    []],
+    ["lcd1:K",   "uno:GND.2","black",  []],
+
+    ["uno:9",      "r1:1",       "green",  []],
+    ["r1:2",       "ledVerde:A", "green",  []],
+    ["ledVerde:C", "uno:GND.2",  "black",  []],
+
+    ["uno:8",     "r2:1",      "red",   []],
+    ["r2:2",      "ledVerm:A", "red",   []],
+    ["ledVerm:C", "uno:GND.2", "black", []],
+
+    ["uno:10",  "bz1:1",     "orange", []],
+    ["bz1:2",   "uno:GND.2", "black",  []]
+  ]
+}
