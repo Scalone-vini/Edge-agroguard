@@ -83,7 +83,7 @@ Arduino Uno
 
 ### Simulação no Wokwi (recomendado)
 
-1. Acesse o link do projeto no Wokwi: **[🔗 inserir link após publicação]**
+1. Acesse o link do projeto no Wokwi: **[🔗https://wokwi.com/projects/466286503832636417]**
 2. Clique em **"Play"** (▶) para iniciar a simulação
 3. Gire o potenciômetro para simular diferentes umidades do solo
 4. O DHT22 virtual pode ser ajustado pelo painel de propriedades do componente
